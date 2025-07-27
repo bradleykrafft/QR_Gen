@@ -1,1 +1,0 @@
-Basic QRCode generator for URLs
