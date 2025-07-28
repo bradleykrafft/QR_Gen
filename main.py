@@ -23,8 +23,9 @@ if 'generated_file' not in session_state:
 if st.button("Generate QR_Code"):
     #img_file = st.write(qr_code_gen(data))
     img_file = qr_code_gen(data)
+    st.success("Now download your QR Code :)")
 
-st.download_button("Generate and save QRCode.",
+st.download_button("Save QRCode.",
                    data=st.session_state.generated_file,
                    file_name=save_file_as,
                    mime="image/png")
