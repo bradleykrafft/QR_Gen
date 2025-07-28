@@ -1,3 +1,5 @@
+from os import access
+
 import qrcode
 # import wx
 import PIL
@@ -35,9 +37,13 @@ def qr_code_gen(link : str):
     qr.add_data(link)
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
-    byte_stream = io.BytesIO()
-    img.save(byte_stream, format='PNG')
-    byte_data = byte_stream.getvalue()
-    return byte_data
+    #save image to BytesIO object
+    image_stream = io.BytesIO()
+    #img.save(image_stream, format='PNG')
+    img.save(image_stream)
 
+    #access the image data as bytes
+    image_stream = image_stream.getvalue()
+
+    return image_stream
 
